@@ -1,0 +1,57 @@
+#box {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	background-color: azure;
+	text-align: center;
+	margin: 20px auto;
+	padding: 20px 50px;
+	border: 2px solid blue;
+	border-radius: 16px;
+	box-shadow: 10px 10px 15px rgb(0, 0, 0, 0.5);
+}
+#box * {
+	font-size: 30px;
+}
+#action {
+	display: flex;
+	justify-content: center;
+}
+#num {
+	margin-right: 30px;
+	font-size: 20px;
+}
+#try, #tryNew {
+	padding: 0 20px;
+	border-radius: 8px;
+	box-shadow: 5px 5px 10px rgba(150, 250, 250, 1);
+	background-image: repeating-linear-gradient(180deg,rgba(0, 0, 255, 1),rgba(0, 0, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+}
+#try, #tryNew:hover {
+	animation: change_color 2s linear forwards;
+}
+@keyframes change_color {
+	100% {
+		box-shadow: -6px -6px 10px rgba(150, 255, 255, 1);
+		background-color: red;
+	}
+}
+@media(max-width: 720px) {
+	#box {
+		width: 90%;
+		margin: 10px auto;
+		padding: 5px 10px;
+		border-radius: 8px;
+		box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.5);
+	}
+	#box * {
+		font-size: 16px;
+	}
+	#num {
+		margin-right: 10px;
+		font-size: 14px;
+	}
+	#try, #tryNew {
+		padding: 0 5px;
+	}
+}
