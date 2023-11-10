@@ -4,7 +4,6 @@ const guessTry = document.querySelector('#try');
 const tryNew = document.querySelector('#tryNew');
 tryNew.style.display = "none";
 let numOfTries = 3;
-inputNum.value = "";
 let randomNumber = getRand();
 guessTry.addEventListener('click', game);
 tryNew.addEventListener('click', newGame);
@@ -33,7 +32,8 @@ function game() {
 	}
 	if(a<randomNumber) {
 		numOfTries--;
-		outputRes.innerHTML = "You guess less, you have "+numOfTries+" tries";
+		outputRes.innerHTML = "You guess "+a+", it's less, you have "+numOfTries+" tries";
+		inputNum.value = "";
 		if(numOfTries==0) {
 			gameOver()
 		}
@@ -41,7 +41,8 @@ function game() {
 	} 
 	if(a>randomNumber) {
 		numOfTries--;
-		outputRes.innerHTML = "You guess over,you have "+numOfTries+" tries";
+		outputRes.innerHTML = "You guess "+a+", it's over,you have "+numOfTries+" tries";
+		inputNum.value = "";
 		if(numOfTries==0) {
 			gameOver()
 		}
