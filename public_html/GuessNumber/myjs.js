@@ -21,44 +21,32 @@ function getRand() {
 function game() {
 	console.log("random number = "+randomNumber);
 	let a = inputNum.value.toString().trim();
+	inputNum.value = "";
 	a = Number(a);
-	if(!a) {
+	if(!a && a!=0){
 		outputRes.innerHTML = "This isn't number, try again";
 		return ;
 	}
-	if(a<1 || a > 10) {
+	if(a<1 || a>10){
 		outputRes.innerHTML = "You enter "+a+", try again from 1 to 10";
 		return ;
 	}
-	if(a<randomNumber) {
+	if(a<randomNumber){
 		numOfTries--;
 		outputRes.innerHTML = "You guess "+a+", it's less, you have "+numOfTries+" tries";
-		inputNum.value = "";
-		if(numOfTries==0) {
-			gameOver()
-		}
+		if(numOfTries==0) gameOver("Game over, try new Game");
 		return ;
 	} 
 	if(a>randomNumber) {
 		numOfTries--;
 		outputRes.innerHTML = "You guess "+a+", it's over,you have "+numOfTries+" tries";
-		inputNum.value = "";
-		if(numOfTries==0) {
-			gameOver()
-		}
+		if(numOfTries==0) gameOver("Game over, try new Game");
 		return ;
 	}
-	inputNum.value = "";
-	outputRes.innerHTML = "Congratulation, You are win with "+(4-numOfTries)+" tries";
+	gameOver("Congratulation, You are win with "+(4-numOfTries)+" tries")
+}
+function gameOver(message) {
+	outputRes.innerHTML = message;
 	tryNew.style.display = "inline";
 	guessTry.style.display = "none";
-	inputNum.value = "";
-}
-function gameOver() {
-	if(numOfTries<=0) {
-		outputRes.innerHTML = "Game over, try new Game";
-		tryNew.style.display = "inline";
-		guessTry.style.display = "none";
-		inputNum.value = "";
-	}
 }
